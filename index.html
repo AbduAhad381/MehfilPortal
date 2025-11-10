@@ -29,7 +29,7 @@
             theme: {
                 extend: {
                     colors: {
-                        // Updated to use the deep green color
+                        // Updated to use the deep green color #026419
                         'primary-green': '#026419', 
                         'secondary-white': '#ffffff',
                     }
@@ -60,9 +60,11 @@
     </header>
 
     <div class="relative h-48 w-full overflow-hidden mb-8 shadow-xl">
-        <div class="w-full h-full bg-primary-green flex items-center justify-center">
-            <h1 class="text-3xl font-extrabold text-white opacity-80">RoadRunner Bus</h1>
-        </div>
+        <img src="https://idreesia.com/images/home-banner.jpg" 
+             alt="City bus service banner" 
+             class="w-full h-full object-cover"
+             onerror="this.onerror=null;this.src='https://placehold.co/1200x300/026419/ffffff?text=Bus+Service+Banner';">
+         
         </div>
 
     <main class="max-w-6xl mx-auto px-4 py-6">
