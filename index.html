@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Service Dashboard</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for professional feel and hover effects */
+        .card-shadow {
+            /* Applied shadow for depth */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-shadow:hover {
+            /* Lift effect on hover */
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        /* Setting 'Inter' as the default font */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f7f9; /* Light gray background */
+        }
+    </style>
+    <script>
+        // Custom Tailwind config to define brand colors
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-blue': '#1c4587', /* Deep Blue for Bus Theme */
+                        'secondary-indigo': '#4c51bf',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-h-screen">
+
+    <!-- Header / Navigation Bar -->
+    <header class="bg-primary-blue shadow-lg">
+        <!-- Max width applied to the header content container -->
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="text-2xl font-bold text-white tracking-wider">
+                RoadRunner <span class="text-yellow-400">Bus</span>
+            </div>
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-6 text-white text-sm font-medium">
+                <a href="#" class="hover:text-yellow-400 transition duration-150 p-2 rounded-lg bg-secondary-indigo/30">Dashboard</a>
+                <a href="#" class="hover:text-yellow-400 transition duration-150 p-2">Routes & Trips</a>
+                <a href="#" class="hover:text-yellow-400 transition duration-150 p-2">Vehicles</a>
+                <a href="#" class="hover:text-yellow-400 transition duration-150 p-2">Personnel</a>
+            </nav>
+            <!-- User/Profile Placeholder Icon -->
+            <button class="text-white hover:text-yellow-400 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Banner Section - Max width applied and centered -->
+    <div class="relative h-48 max-w-6xl mx-auto overflow-hidden mb-8 shadow-xl">
+        <img src="https://idreesia.com/images/home-banner.jpg" 
+             alt="City bus service banner" 
+             class="w-full h-full object-cover"
+             onerror="this.onerror=null;this.src='https://placehold.co/1200x300/1c4587/ffffff?text=Bus+Service+Banner';">
+        
+        <!-- Overlay for text readability (Restored) -->
+        <div class="absolute inset-0 bg-primary-blue bg-opacity-70 flex items-center justify-center p-4">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-white text-center tracking-tight">
+                Operations <span class="text-yellow-400">Control Center</span>
+            </h1>
+        </div>
+    </div>
+
+    <!-- Main Dashboard Layout - Max width applied and centered -->
+    <main class="max-w-6xl mx-auto px-4 py-6">
+        
+        <!-- Section 1: KPI/Metric Cards -->
+        <!-- Responsive grid adapts from 1 column (mobile) up to 4 columns (desktop) -->
+        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            
+            <!-- KPI Card 1: Total Routes -->
+            <div class="bg-white p-6 rounded-xl card-shadow border-t-4 border-secondary-indigo">
+                <div class="flex items-center justify-between">
+                    <p class="text-sm font-medium text-gray-500 uppercase tracking-wider">Total Routes</p>
+                    <!-- Icon for Routes -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-secondary-indigo" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.726A8 8 0 016.343 3.274L7.48 4.414l-1.414 1.414L5.06 4.686A8 8 0 0017.657 16.726z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l-9 9 9-9 9 9-9-9z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14h-6.172a2 2 0 00-1.414.586L4 18V3a1 1 0 011-1h14a1 1 0 011 1v14a1 1 0 01-1 1h-1z" />
+                    </svg>
+                </div>
+                <p class="mt-1 text-3xl font-bold text-gray-900">42</p>
+                <p class="text-xs text-green-500 mt-2">+5% since last month</p>
+            </div>
+
+            <!-- KPI Card 2: Total Buses -->
+            <div class="bg-white p-6 rounded-xl card-shadow border-t-4 border-yellow-500">
+                <div class="flex items-center justify-between">
+                    <p class="text-sm font-medium text-gray-500 uppercase tracking-wider">Total Vehicles</p>
+                    <!-- Icon for Vehicles -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3a1 1 0 011-1h6a1 1 0 011 1v4m-2 0h-4m4 0h2a2 2 0 012 2v10a2 2 0 01-2 2H6a2 2 0 01-2-2v-10a2 2 0 012-2h2m0 0H6m-2 0V3a1 1 0 011-1h6a1 1 0 011 1v4" />
+                    </svg>
+                </div>
+                <p class="mt-1 text-3xl font-bold text-gray-900">128</p>
+                <p class="text-xs text-red-500 mt-2">4 awaiting maintenance</p>
+            </div>
+
+            <!-- KPI Card 3: Active Drivers -->
+            <div class="bg-white p-6 rounded-xl card-shadow border-t-4 border-green-500">
+                <div class="flex items-center justify-between">
+                    <p class="text-sm font-medium text-gray-500 uppercase tracking-wider">Active Drivers</p>
+                    <!-- Icon for Drivers/Personnel -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-1a3 3 0 00-3-3H6a3 3 0 00-3 3v1h5m2-9a4 4 0 100-8 4 4 0 000 8zm0 12h-2V7h2v12z" />
+                    </svg>
+                </div>
+                <p class="mt-1 text-3xl font-bold text-gray-900">105</p>
+                <p class="text-xs text-gray-500 mt-2">3 drivers on leave</p>
+            </div>
+
+            <!-- KPI Card 4: Total Passengers (Daily Avg) -->
+            <div class="bg-white p-6 rounded-xl card-shadow border-t-4 border-red-500">
+                <div class="flex items-center justify-between">
+                    <p class="text-sm font-medium text-gray-500 uppercase tracking-wider">Daily Avg. Pax</p>
+                    <!-- Icon for Passengers -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M12 20a9 9 0 100-18 9 9 0 000 18z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 12c-3.313 0-6 2.687-6 6h12c0-3.313-2.687-6-6-6z" />
+                    </svg>
+                </div>
+                <p class="mt-1 text-3xl font-bold text-gray-900">4,520</p>
+                <p class="text-xs text-green-500 mt-2">On track for month end</p>
+            </div>
+            
+        </section>
+
+        <!-- Section 2: Recent Activity and Quick Actions -->
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            
+            <!-- Column 1 & 2: Recent Trips (List) -->
+            <div class="lg:col-span-2 bg-white p-6 rounded-xl shadow-lg">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4 border-b pb-2">Recent Trip Activity</h2>
+                <div class="space-y-4">
+                    <!-- Activity Item 1: On Time -->
+                    <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg transition hover:bg-indigo-50/50">
+                        <div>
+                            <p class="font-medium text-primary-blue">Route 101 - Downtown Express</p>
+                            <p class="text-xs text-gray-500">Bus #45, Driver: John Doe</p>
+                        </div>
+                        <span class="text-sm font-semibold text-green-600 bg-green-100 px-3 py-1 rounded-full">On Time</span>
+                    </div>
+
+                    <!-- Activity Item 2: Delayed -->
+                    <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg transition hover:bg-indigo-50/50">
+                        <div>
+                            <p class="font-medium text-primary-blue">Route 305 - Airport Shuttle</p>
+                            <p class="text-xs text-gray-500">Bus #12, Driver: Jane Smith</p>
+                        </div>
+                        <span class="text-sm font-semibold text-red-600 bg-red-100 px-3 py-1 rounded-full">15 min Delay</span>
+                    </div>
+
+                    <!-- Activity Item 3: Completed -->
+                    <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg transition hover:bg-indigo-50/50">
+                        <div>
+                            <p class="font-medium text-primary-blue">Route 511 - University Loop</p>
+                            <p class="text-xs text-gray-500">Bus #88, Driver: Alex Kim</p>
+                        </div>
+                        <span class="text-sm font-semibold text-yellow-600 bg-yellow-100 px-3 py-1 rounded-full">Completed</span>
+                    </div>
+
+                    <!-- Activity Item 4: On Time -->
+                    <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg transition hover:bg-indigo-50/50">
+                        <div>
+                            <p class="font-medium text-primary-blue">Route 207 - East Side Connector</p>
+                            <p class="text-xs text-gray-500">Bus #33, Driver: Omar Hassan</p>
+                        </div>
+                        <span class="text-sm font-semibold text-green-600 bg-green-100 px-3 py-1 rounded-full">On Time</span>
+                    </div>
+                </div>
+                <div class="mt-4 text-center">
+                    <a href="#" class="text-primary-blue hover:text-secondary-indigo text-sm font-medium">View All Trips &rarr;</a>
+                </div>
+            </div>
+            
+            <!-- Column 3: Quick Actions -->
+            <div class="bg-white p-6 rounded-xl shadow-lg">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4 border-b pb-2">Quick Actions</h2>
+                <div class="space-y-4">
+                    <button class="w-full flex items-center justify-center space-x-2 p-4 rounded-xl bg-green-500 text-white font-bold hover:bg-green-600 transition card-shadow">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                        <span>Schedule New Trip</span>
+                    </button>
+                    <button class="w-full flex items-center justify-center space-x-2 p-4 rounded-xl bg-primary-blue text-white font-bold hover:bg-secondary-indigo transition card-shadow">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>Add New Vehicle</span>
+                    </button>
+                    <button class="w-full flex items-center justify-center space-x-2 p-4 rounded-xl bg-gray-200 text-gray-700 font-bold hover:bg-gray-300 transition card-shadow">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                        </svg>
+                        <span>View Reports</span>
+                    </button>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-8 py-4 bg-gray-800 text-center text-gray-400 text-sm">
+        <!-- Max width applied to the footer content container -->
+        <div class="max-w-6xl mx-auto px-4">
+            &copy; 2025 RoadRunner Bus Service. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
